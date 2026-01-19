@@ -192,7 +192,7 @@ class RealNavigation(Node):
         target = self.start_cfg
         if self.curr_pose is None: self.pub_init_pose(); return
         dist = sqrt((self.curr_pose[0]-target['x'])**2 + (self.curr_pose[1]-target['y'])**2)
-        if dist < 0.2: self.amcl_synced = True; self.get_logger().info("✅ 동기화 완료!")
+        if dist < 0.2: self.amcl_synced = True; self.get_logger().info("동기화 완료!")
         else: self.pub_init_pose()
 
     def pub_init_pose(self):
