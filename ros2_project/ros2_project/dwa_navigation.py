@@ -91,14 +91,14 @@ class SimpleNavigation(Node):
 
         # 1. 비상 정지 (물리적 안전장치)
         if self.front_min_dist < self.STOP_DIST:
-            self.stop(); self.get_logger().warn("🚨 비상 정지!", throttle_duration_sec=1.0)
+            self.stop(); self.get_logger().warn("비상 정지!", throttle_duration_sec=1.0)
             return
 
         # 2. 도착 확인
         goal_global = self.global_path[-1]
         dist_to_goal = hypot(goal_global[0]-self.curr_pose[0], goal_global[1]-self.curr_pose[1])
         if dist_to_goal < 0.15:
-            self.stop(); self.global_path = []; self.get_logger().info("🏁 도착!")
+            self.stop(); self.global_path = []; self.get_logger().info("도착!")
             return
 
         # 3. Local Goal 좌표 변환 (Global -> Robot Frame)
